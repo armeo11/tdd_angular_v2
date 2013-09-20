@@ -1,13 +1,19 @@
 <html>
 <head><title>Todo</title></head>
-<body ng-app>
+<body ng-app="TodoApp">
 <h1>Todo Application</h1>
-<div ng-controller="TodoController">
+<div ng-controller="TodoController" ng-init="load()">
+  <form ng-submit="add()">
+    <input tpye="text" ng-model="newItem">
+    <input type="submit" value="Add">
+  </form>
   <ul>
-    <li ng-repeat="item in items">{{item}}</li>
+    <li ng-repeat="item in items">{{item.name}}</li>
   </ul>
+  <input type="button" ng-click="save()" value="Save">
 </div>
 <script type="text/javascript" src="static/js/lib/angular.min.js"></script>
+<script type="text/javascript" src="static/js/lib/angular-resource.min.js"></script>
 <script type="text/javascript" src="static/js/todo.js"></script>
 </body>
 </html>
